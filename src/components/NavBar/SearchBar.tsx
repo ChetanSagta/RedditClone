@@ -1,15 +1,12 @@
 import { BsSearch } from "react-icons/bs";
+import { TextBox } from "../ui/TextBox";
 
 export const SearchBar = () => {
   return (
-    <span>
+    <span className="flex-grow">
       <form className="flex ml-10 border-2 m-1 mt-0">
-        <BsSearch size="30" className="flex-grow h-6 mt-2 pl-2" />
-        <input
-          className="p-1 border-black rounded m-2 flex-grow"
-          type="search"
-          placeholder="Search Reddit Clone"
-        />
+        <BsSearch size="30" className="flex h-6 mt-2 pl-2" />
+        <TextBox placeholder="Search Reddit Clone" type="search"/>
       </form>
     </span>
   );
