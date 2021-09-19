@@ -2,7 +2,6 @@ import { Card } from "../ui/Card";
 
 export const AboutCard = () => {
   return (
-    <span className="float-right">
       <Card>
         <div>
           <h1 className="p-4 text-3xl font-bold">About Card</h1>
@@ -12,6 +11,5 @@ export const AboutCard = () => {
           </p>
         </div>
       </Card>
-    </span>
   );
 };

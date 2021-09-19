@@ -1,14 +1,15 @@
-import './App.css';
-import { Body } from './components/Body/Body';
-import { NavBar } from './components/NavBar/NavBar';
+import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HomePage } from "./components/Pages/HomePage";
+import { SubmitPage } from "./components/Pages/SubmitPage";
 
 function App() {
   return (
-    <div>
-      <NavBar className="flex bg-white border-b-2"/>
-      <Body className="pl-64 pr-64 m-2 flex"/>
-    </div>
-  )
+    <Router>
+      <Route path="/" exact component={HomePage}/>
+      <Route path="/submit" exact component={SubmitPage}/>
+    </Router>
+  );
 }
 
 export default App;
