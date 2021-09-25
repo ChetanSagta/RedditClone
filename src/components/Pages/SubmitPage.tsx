@@ -15,7 +15,7 @@ import { TextArea } from "../ui/TextArea";
 
 export const SubmitPage = () => {
   const [wordCount, setWordCount] = useState(0);
-  const [postType , setPostType] = useState("Post");
+  const [postType, setPostType] = useState("Post");
 
   const updateWorldCount = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setWordCount(event.target.textLength);
@@ -23,13 +23,10 @@ export const SubmitPage = () => {
 
   const updatePostType = (event: MouseEvent) => {
     const textContent = event.currentTarget.textContent;
-    if(textContent)
-      setPostType(textContent);
-  }
+    if (textContent) setPostType(textContent);
+  };
 
-  const submitPost = () => {
-    
-  } 
+  const submitPost = () => {};
 
   return (
     <div>
@@ -50,14 +47,23 @@ export const SubmitPage = () => {
           </Card>
           <Card className="border-b-2 flex-col">
             <div className="flex border-2 pb-2">
-              <button className="w-full flex justify-center border-r-2 focus:text-blue-600" onClick={updatePostType}>
-                <BsFilePost className="mt-2 mr-2" /> 
+              <button
+                className="w-full flex justify-center border-r-2 focus:text-blue-600"
+                onClick={updatePostType}
+              >
+                <BsFilePost className="mt-2 mr-2" />
                 <div>Post</div>
               </button>
-              <button className="w-full flex justify-center focus:text-blue-600" onClick={updatePostType}>
+              <button
+                className="w-full flex justify-center focus:text-blue-600"
+                onClick={updatePostType}
+              >
                 <BsCardImage className="mt-2 mr-2" /> Images & Videos
               </button>
-              <button className="w-full flex justify-center border-l-2 focus:text-blue-600" onClick={updatePostType}>
+              <button
+                className="w-full flex justify-center border-l-2 focus:text-blue-600"
+                onClick={updatePostType}
+              >
                 <BsLink45Deg className="mt-2 mr-2" /> Link
               </button>
             </div>
@@ -71,7 +77,7 @@ export const SubmitPage = () => {
               />
               <div>{wordCount}/300</div>
             </div>
-            <SubmitBody bodyType={postType}/>
+            <SubmitBody bodyType={postType} />
             <div>
               <Button type="submit" className="self-end" onClick={submitPost}>
                 Post
