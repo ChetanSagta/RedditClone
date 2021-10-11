@@ -1,4 +1,5 @@
 import React from "react";
+import './Button.css';
 
 interface ButtonProps {
   type: "button" | "submit" | "reset" | undefined;
@@ -11,7 +12,6 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       type={props.type}
-      className="rounded-full border-2 px-4 py-2 m-1 bg-yellow-50"
       onClick={props.onClick}
     >
       {props.children}

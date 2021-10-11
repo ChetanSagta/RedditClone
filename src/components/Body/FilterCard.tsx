@@ -1,6 +1,7 @@
 import { Card } from "../ui/Card";
 import { AiTwotoneFire, AiOutlineStar } from "react-icons/ai";
 import { HiOutlineArrowNarrowUp } from "react-icons/hi";
+import './FilterCard.css';
 
 export const FilterCard = () => {
 
@@ -12,14 +13,14 @@ export const FilterCard = () => {
   return (
     <Card>
       <div className="border-blue-400 rounded-xl flex">
-        <button type="button" className="font-bold m-auto flex" onClick={() => postFilter("HOT")}>
-          <AiTwotoneFire className="rounded-full h-auto mx-2" /> HOT
+        <button type="button" className="filterBtn" onClick={() => postFilter("HOT")}>
+          <AiTwotoneFire className="filterIcon" /> HOT
         </button>
-        <button type="button" className="font-bold m-auto flex" onClick={() => postFilter("NEW")}>
-          <AiOutlineStar className="rounded-full h-auto mx-2" /> NEW
+        <button type="button" className="filterBtn" onClick={() => postFilter("NEW")}>
+          <AiOutlineStar className="filterIcon" /> NEW
         </button>
-        <button type="button" className="font-bold m-auto flex" onClick={() => postFilter("TOP")}>
-          <HiOutlineArrowNarrowUp className="rounded-full h-auto mx-2" /> TOP
+        <button type="button" className="filterBtn" onClick={() => postFilter("TOP")}>
+          <HiOutlineArrowNarrowUp className="filterIcon" /> TOP
         </button>
       </div>
     </Card>

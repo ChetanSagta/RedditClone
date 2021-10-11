@@ -4,6 +4,7 @@ import { CreatePostCard } from "./CreatePostCard";
 import { FilterCard } from "./FilterCard";
 import image from "../../images/redditicon.png";
 import { RuleCard } from "./RuleCard";
+import './Body.css'
 
 interface Props {
   className: string;
@@ -11,14 +12,14 @@ interface Props {
 
 export const Body = (props: Props) => (
   <div className={props.className}>
-    <div id="left Side" className="max-w-3xl">
+    <div id="left Side" className="leftSide">
       <CreatePostCard />
       <FilterCard />
       <PostCard text="This is a dummy Tag" header="Dummy Header" />
       <PostCard src={image} header="Dummy Image" />
       The above image resolution needs to be set
     </div>
-    <div id="right Side" className="max-w-xs">
+    <div id="right Side" className="rightSide">
       <AboutCard />
       <RuleCard />
     </div>

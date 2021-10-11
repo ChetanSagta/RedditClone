@@ -3,8 +3,8 @@ import { RedditLogo } from "./RedditLogo";
 import { SearchBar } from "./SearchBar";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Button } from "../ui/Button";
 import React from "react";
+import { UserButton } from "./UserButton";
 
 interface NavBarProp {
   className: string;
@@ -19,24 +19,18 @@ export const NavBar = (props: NavBarProp) => {
     }
   }, []);
 
-  const logOut = () => {
-    localStorage.clear();
-    window.location.reload()
-  }
-
   return (
     <div className={props.className}>
       <Link to="/">
         <RedditLogo />
       </Link>
       <SearchBar />
-      {!isLoggedIn && <Login />}
-      {isLoggedIn && (
+      {!isLoggedIn && (
         <React.Fragment>
-          <Button type="button">{localStorage.getItem("User")}</Button>
-          <Button type="button" onClick={logOut}>Logout</Button>
+          <Login />
         </React.Fragment>
-      )}
+      )} 
+      <UserButton />
     </div>
   );
 };

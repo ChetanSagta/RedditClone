@@ -1,9 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { UserInformation } from "../../DTO/UserInformation";
 import { Button } from "../ui/Button";
 import { FaSpinner } from "react-icons/fa";
+import { UserInformation } from "../../DTO/UserInformation";
+import "./LoginPage.css";
 
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -43,23 +44,23 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="m-20">
-      <div className="mb-10">
-        <h1 className="font-bold">Login</h1>
+    <div className="outerDiv">
+      <div className="innerDiv">
+        <h1>Login</h1>
         By continuing, you agree to our User Agreement and Privacy Policy
       </div>
       <Button type="button">Continue with Google</Button>
       <br />
       <Button type="button">Continue with Apple</Button>
       <br />
-      <div className="mt-10 mb-10">
+      <div className="or">
         -------------------------- OR -------------------------
       </div>
       <form onSubmit={submitForm}>
         <input
           type="text"
           placeholder="Username"
-          className="resize-none overflow-auto outline-none pt-2 pl-2"
+          className="textBox"
           maxLength={300}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setTimeout(() => setUsername(event.target.value), 1000);
@@ -70,7 +71,7 @@ export const LoginPage = () => {
         <input
           type="password"
           placeholder="Password"
-          className="resize-none overflow-auto outline-none pt-2 pl-2"
+          className="textBox"
           maxLength={300}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setTimeout(() => {
@@ -79,18 +80,18 @@ export const LoginPage = () => {
           }}
         />
         <br />
-        <Button type="submit" className="pr-5 pl-5 w-20">
+        <Button type="submit" className="submitBtn">
           Login
         </Button>
-        {loading && <FaSpinner className="animate-spin" />}
+        {loading && <FaSpinner className="spin" />}
         <p>
           Forgot your{" "}
-          <Link to="" className="text-blue-500">
+          <Link to="" className="link">
             {" "}
             username
           </Link>{" "}
           or{" "}
-          <Link to="" className="text-blue-500">
+          <Link to="" className="link">
             {" "}
             password
           </Link>{" "}
@@ -99,7 +100,7 @@ export const LoginPage = () => {
       </form>
       <br />
       New to Reddit?{" "}
-      <Link to="/signup" className="text-blue-500 underline">
+      <Link to="/signup" className="link underline">
         {" "}
         Signup
       </Link>

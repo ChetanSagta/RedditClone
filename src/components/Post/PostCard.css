@@ -1,0 +1,22 @@
+img{
+  max-width: 32rem;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.icons{
+  width: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bottomBar{
+  display: flex;
+  padding-top: 1.25rem;
+}

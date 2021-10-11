@@ -1,0 +1,19 @@
+.bsImageFill{
+  height: 2.5rem;
+  width: 2rem;
+  margin: 0.25rem;
+}
+
+.fiLink{
+  height: 2rem;
+  width: 2rem;
+  margin: 0.25rem;
+}
+
+.searchCard{
+  display: flex;
+}
+
+#searchBox{
+  width: 30rem;
+}

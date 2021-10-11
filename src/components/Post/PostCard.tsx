@@ -3,6 +3,7 @@ import { BiComment, BiShareAlt } from "react-icons/bi";
 import { GoReport } from "react-icons/go";
 import { ImArrowDown, ImArrowUp } from "react-icons/im";
 import { ReactNode, useState } from "react";
+import './PostCard.css';
 
 interface ContentProps {
   header: string;
@@ -22,7 +23,6 @@ export const PostCard = (props: ContentProps) => {
       <img
         src={props.src}
         alt="Todo_Maintain_Image_Size"
-        className="max-w-lg"
       />
     );
   } else if (props.text) {
@@ -67,30 +67,30 @@ export const PostCard = (props: ContentProps) => {
   return (
     <Card className={props.className}>
       <div className="p-2">
-        <h1 className="font-bold text-xl " >{props.header}</h1>
+        <h1>{props.header}</h1>
         <span className ="cursor-pointer" onClick={openFullPostHandler}> {contentTag} </span>
-        <div className="flex pt-5 items-center">
+        <div className="bottomBar">
           <ImArrowUp
-            className="w-10 text-xl inline-block cursor-pointer" color={upArrowColor}
+            className="icons" color={upArrowColor}
             onClick={() => votingHandler(true)}
           />
           <span>Vote</span>
           <ImArrowDown
-            className="w-10 text-xl inline-block cursor-pointer" color={downArrowColor}
+            className="icons" color={downArrowColor}
             onClick={() => votingHandler(false)}
           />
           <BiComment
-            className="w-10 text-xl align-middle inline-block cursor-pointer"
+            className="icons"
             onClick={addCommentHandler}
           />
           <span>x Comments</span>
           <BiShareAlt
-            className="w-10 text-xl inline-block cursor-pointer"
+            className="icons"
             onClick={shareEventHandler}
           />
           <span>Share</span>
           <GoReport
-            className="w-10 text-xl inline-block cursor-pointer"
+            className="icons"
             onClick={reportEventHandler}
           />
           <span>Report</span>

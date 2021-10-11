@@ -1,4 +1,5 @@
-import { ChangeEvent, MouseEvent, useState } from "react";
+import axios from "axios";
+import { ChangeEvent, FormEvent, MouseEvent, useState } from "react";
 import {
   BsFilePost,
   BsCardImage,
@@ -12,80 +13,113 @@ import { Avatar } from "../ui/Avatar";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { TextArea } from "../ui/TextArea";
+import './SubmitPage.css';
 
 export const SubmitPage = () => {
   const [wordCount, setWordCount] = useState(0);
   const [postType, setPostType] = useState("Post");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState<string | File>();
 
   const updateWorldCount = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setTitle(event.target.value);
     setWordCount(event.target.textLength);
   };
 
   const updatePostType = (event: MouseEvent) => {
+    setTitle(""); setBody("");
     const textContent = event.currentTarget.textContent;
     if (textContent) setPostType(textContent);
   };
 
-  const submitPost = () => {};
+  const submitPost = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const baseURL = "http://localhost:8080";
+    const token= localStorage.getItem("Jwt Token");
+
+    axios({
+      baseURL: baseURL + "/post/add",
+      method: "post",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Authorization":token
+      },
+      data: {
+        title: title,
+        body: body,
+      },
+    })
+      .then(function (response) {
+        alert(response);
+      })
+      .catch(function (error) {
+        alert(error.message);
+      });
+  };
 
   return (
     <div>
-      <NavBar className="flex bg-white border-b-2" />
-      <div className="pl-64 flex mt-10">
-        <div id="left Side" className="max-w-3xl mr-2 flex-grow">
-          <div className="font-bold border-t-2 border-solid border-black">
-            <span className="float-left">Create a Post</span>
+      <NavBar className="navbar" />
+      <div id="body">
+        <div id="leftSide">
+          <div className="postTitle">
+            <span>Create a Post</span>
             <span className="float-right">Draft 0</span>
           </div>
           <br />
-          <Card className="inline-block">
-            <div className="flex">
+          <Card id="communityCard">
+            <div id="communityContainer">
               <Avatar src="" />
-              <div className="flex-wrap">Choose a community</div>
+              <div id="communityText">Choose a community</div>
               <BsArrowDownShort size={30} />
             </div>
           </Card>
-          <Card className="border-b-2 flex-col">
-            <div className="flex border-2 pb-2">
+          <Card id="postCard">
+            <div className="post-selector">
               <button
-                className="w-full flex justify-center border-r-2 focus:text-blue-600"
+                className="btn"
                 onClick={updatePostType}
               >
-                <BsFilePost className="mt-2 mr-2" />
+                <BsFilePost className="icon" />
                 <div>Post</div>
               </button>
               <button
-                className="w-full flex justify-center focus:text-blue-600"
+                className="btn"
                 onClick={updatePostType}
               >
-                <BsCardImage className="mt-2 mr-2" /> Images & Videos
+                <BsCardImage className="icon"/> Images & Videos
               </button>
               <button
-                className="w-full flex justify-center border-l-2 focus:text-blue-600"
+                className="btn"
                 onClick={updatePostType}
               >
-                <BsLink45Deg className="mt-2 mr-2" /> Link
+                <BsLink45Deg className="icon" /> Link
               </button>
             </div>
-            <div className="flex m-2 border-2 rounded-md pt-2 pl-2 pr-2 pb-0 mt-2 ">
-              <TextArea
-                placeholder="Title"
-                rows={1}
-                className="resize-none w-full overflow-auto outline-none"
-                maxLength={300}
-                onChange={updateWorldCount}
+            <form onSubmit={submitPost}>
+              <div id="title">
+                <TextArea
+                  placeholder="Title"
+                  rows={1}
+                  className="title"
+                  maxLength={300}
+                  onChange={updateWorldCount}
+                />
+                <div>{wordCount}/300</div>
+              </div>
+              <SubmitBody
+                bodyType={postType}
+                setBody={(content: string | File) => setBody(content)}
               />
-              <div>{wordCount}/300</div>
-            </div>
-            <SubmitBody bodyType={postType} />
-            <div>
-              <Button type="submit" className="self-end" onClick={submitPost}>
-                Post
-              </Button>
-            </div>
+              <div>
+                <Button type="submit">
+                  Post
+                </Button>
+              </div>
+            </form>
           </Card>
         </div>
-        <div id="right Side" className="max-w-xs ">
+        <div id="rightSide">
           <RuleCard />
         </div>
       </div>

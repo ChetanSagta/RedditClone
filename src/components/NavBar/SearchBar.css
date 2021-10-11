@@ -1,0 +1,18 @@
+.outer{
+  flex-grow: 1;
+}
+
+.inner{
+  display: flex;
+  margin-left: 2.5rem;
+  border: 2px;
+  margin: 0.25rem;
+  margin-top: 0px;
+}
+
+.searchIcon{
+  display: flex;
+  height: 1.5rem;
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}

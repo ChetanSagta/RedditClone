@@ -1,0 +1,11 @@
+.navbar{
+  display: flex;
+  background-color: white;
+  border-bottom-width: 2px;
+}
+
+.body{
+  padding-left: 16rem;
+  padding-right: 8rem;
+  display: flex;
+}

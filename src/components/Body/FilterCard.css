@@ -1,0 +1,12 @@
+.filterBtn{
+  font-weight: 700;
+  margin: auto;
+  display: flex;
+}
+
+.filterIcon{
+  border-radius: 9999px;
+  height: auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}

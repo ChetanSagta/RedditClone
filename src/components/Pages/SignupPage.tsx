@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { FcCheckmark } from "react-icons/fc";
 import { FaSpinner } from "react-icons/fa";
+import './SignupPage.css';
 
 export const SignupPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -85,16 +86,16 @@ export const SignupPage = () => {
 
   return (
     <div>
-      <div className="m-20">
-        <div className="mb-10">
-          <h1 className="font-bold">Sign Up</h1>
+      <div className="outerDiv">
+        <div className="innerDiv">
+          <h1>Sign Up</h1>
           By continuing, you agree to our User Agreement and Privacy Policy
         </div>
         <Button type="button">Continue with Google</Button>
         <br />
         <Button type="button">Continue with Apple</Button>
         <br />
-        <div className="mt-10 mb-10">
+        <div className="or">
           -------------------------- OR -------------------------
         </div>
         <form onSubmit={submitForm}>
@@ -102,7 +103,7 @@ export const SignupPage = () => {
             name="Email"
             placeholder="Email"
             type="email"
-            className="resize-none overflow-auto outline-none p-2 h-full mb-1"
+            className="textBox"
             maxLength={300}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setTimeout(() => setEmail(event.target.value), 1000);
@@ -112,7 +113,7 @@ export const SignupPage = () => {
           <input
             name="username"
             placeholder="Username"
-            className="resize-none overflow-auto outline-none p-2 h-full mb-1"
+            className="textBox"
             maxLength={300}
             onChange={checkUser}
           />
@@ -120,7 +121,7 @@ export const SignupPage = () => {
             <FcCheckmark className="inline-block" />
           )}
           {!uniqueUser && uniqueUser !== undefined && (
-            <span className="border-red-500 border-2 p-2 m-2 rounded-full w-1/4">
+            <span className="errorMsg">
               {uniqueUserErrorMessage}
             </span>
           )}
@@ -129,14 +130,14 @@ export const SignupPage = () => {
             name="password"
             placeholder="Password"
             type="password"
-            className="resize-none overflow-auto outline-none p-2 h-full mb-1"
+            className="textBox"
             maxLength={300}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setTimeout(() => setPassword(event.target.value), 1000);
             }}
           />
           {errorMessage && (
-            <span className="border-red-500 border-2 p-2 m-2 rounded-full w-1/4">
+            <span className="errorMsg">
               {errorMessage}
             </span>
           )}
@@ -145,30 +146,30 @@ export const SignupPage = () => {
             name="confirmPassword"
             placeholder="Confirm Password"
             type="password"
-            className="resize-none overflow-auto outline-none p-2 h-full mb-1"
+            className="textBox"
             maxLength={300}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setTimeout(() => setConfirmPassword(event.target.value), 1000);
             }}
           />
           {errorMessage && (
-            <span className="border-red-500 border-2 p-2 m-2 rounded-full w-1/4">
+            <span className="errorMsg">
               {errorMessage}
             </span>
           )}
           <br />
-          <Button type="submit" className="pr-5 pl-5 w-20">
+          <Button type="submit" className="submitBtn">
             Sign up
           </Button>
-          {loading && <FaSpinner className="animate-spin" />}
+          {loading && <FaSpinner className="spin" />}
           <p>
             Forgot your{" "}
-            <Link to="" className="text-blue-500">
+            <Link to="" className="link">
               {" "}
               username
             </Link>{" "}
             or{" "}
-            <Link to="" className="text-blue-500">
+            <Link to="" className="link">
               {" "}
               password
             </Link>{" "}
@@ -177,7 +178,7 @@ export const SignupPage = () => {
         </form>
         <br />
         Already a Redditor?{" "}
-        <Link to="/login" className="text-blue-500 underline">
+        <Link to="/login" className="link underline">
           {" "}
           Login
         </Link>

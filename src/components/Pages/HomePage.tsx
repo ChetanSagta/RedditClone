@@ -1,11 +1,12 @@
 import { Body } from "../Body/Body";
 import { NavBar } from "../NavBar/NavBar";
+import './HomePage.css';
 
 export const HomePage = () => {
   return(
     <div>
-      <NavBar className="flex bg-white border-b-2"/>
-      <Body className="pl-64 pr-32 flex"/>
+      <NavBar className="navbar"/>
+      <Body className="body"/>
     </div>
   );
 }

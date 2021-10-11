@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, ChangeEvent } from "react";
 import { Button } from "../ui/Button";
 import { TextArea } from "../ui/TextArea";
+import "./SubmitBody.css";
 
 interface Iprops {
   bodyType: string;
+  setBody: (content: string | File) => void;
 }
 
 export const SubmitBody = (props: Iprops) => {
@@ -14,9 +16,13 @@ export const SubmitBody = (props: Iprops) => {
     }
   };
 
+  const setBody = (content: string | File) => {
+    props.setBody(content);
+  };
+
   const handleChange = (event: any) => {
-    const fileUploaded = event.target.files[0];
-    console.log(fileUploaded);
+    const fileUploaded: File = event.target.files[0];
+    setBody(fileUploaded);
   };
 
   let submitBody = null;
@@ -27,6 +33,11 @@ export const SubmitBody = (props: Iprops) => {
           placeholder="Text"
           rows={10}
           className="w-full border-2 mt-2 rounded-md pl-2 pt-2 outline-none"
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+            setTimeout(() => {
+              setBody(event.target.value);
+            }, 1000);
+          }}
         />
       </div>
     );
@@ -56,6 +67,9 @@ export const SubmitBody = (props: Iprops) => {
           placeholder="Url"
           rows={1}
           className="w-full border-2 mt-2 rounded-md pl-2 pt-2 outline-none"
+          onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+            setTimeout(() => setBody(event.target.value), 1000);
+          }}
         />
       </div>
     );
