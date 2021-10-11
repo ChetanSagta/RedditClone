@@ -24,10 +24,10 @@ export const CreatePostCard = () => {
           <TextBox id="searchBox" type="text" placeholder="Create a New Post" />
         </Link>
         <Link to={reDirectionPath}>
-          <BsImageFill className="bsImageFill"/>
+          <BsImageFill className="icon"/>
         </Link>
         <Link to={reDirectionPath}>
-          <FiLink className="fiLink" />
+          <FiLink className="icon" />
         </Link>
     </Card>
   );

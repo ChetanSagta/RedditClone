@@ -66,8 +66,8 @@ export const PostCard = (props: ContentProps) => {
 
   return (
     <Card className={props.className}>
-      <div className="p-2">
-        <h1>{props.header}</h1>
+      <div id="postDiv">
+        <h2>{props.header}</h2>
         <span className ="cursor-pointer" onClick={openFullPostHandler}> {contentTag} </span>
         <div className="bottomBar">
           <ImArrowUp
