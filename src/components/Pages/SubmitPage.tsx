@@ -13,6 +13,7 @@ import { Avatar } from "../ui/Avatar";
 import { Button } from "../ui/Button";
 import { Card } from "../ui/Card";
 import { TextArea } from "../ui/TextArea";
+import { BASE_URL } from "../../CONSTANTS";
 import './SubmitPage.css';
 
 export const SubmitPage = () => {
@@ -34,11 +35,10 @@ export const SubmitPage = () => {
 
   const submitPost = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const baseURL = "http://localhost:8080";
     const token= localStorage.getItem("Jwt Token");
 
     axios({
-      baseURL: baseURL + "/post/add",
+      baseURL: BASE_URL + "/post/add",
       method: "post",
       headers: {
         "Access-Control-Allow-Origin": "*",

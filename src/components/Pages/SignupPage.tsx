@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { FcCheckmark } from "react-icons/fc";
 import { FaSpinner } from "react-icons/fa";
+import { BASE_URL } from "../../CONSTANTS";
 import './SignupPage.css';
 
 export const SignupPage = () => {
@@ -18,15 +19,13 @@ export const SignupPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const baseURL = "http://localhost:8080";
-
   const history = useHistory();
 
   const checkUser = (event: ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
     setTimeout(() => {
       axios({
-        baseURL: baseURL + "/v1/uniqueUser",
+        baseURL: BASE_URL + "/v1/uniqueUser",
         method: "post",
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -61,7 +60,7 @@ export const SignupPage = () => {
 
     setLoading(true);
     axios({
-      baseURL: baseURL + "/v1/signup",
+      baseURL: BASE_URL + "/v1/signup",
       method: "post",
       headers: {
         "Access-Control-Allow-Origin": "*",

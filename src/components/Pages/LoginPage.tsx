@@ -4,13 +4,13 @@ import { Link, useHistory } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { FaSpinner } from "react-icons/fa";
 import { UserInformation } from "../../DTO/UserInformation";
+import { BASE_URL } from "../../CONSTANTS";
 import "./LoginPage.css";
 
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const baseURL = "http://localhost:8080";
 
   const history = useHistory();
 
@@ -19,7 +19,7 @@ export const LoginPage = () => {
     if (username === "" || password === "") return;
     setLoading(true);
     axios({
-      baseURL: baseURL + "/v1/login",
+      baseURL: BASE_URL + "/v1/login",
       method: "post",
       headers: {
         "Access-Control-Allow-Origin": "*",
