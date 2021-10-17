@@ -1,8 +1,9 @@
 .outer{
-  flex-grow: 1;
+  margin-left:10rem;
+  width: 60rem;
 }
 
-.inner{
+.outer form{
   display: flex;
   margin-left: 2.5rem;
   border: 2px;

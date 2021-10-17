@@ -1,12 +1,13 @@
 import { Body } from "../Body/Body";
 import { NavBar } from "../NavBar/NavBar";
-import './HomePage.css';
+import "./HomePage.css";
 
 export const HomePage = () => {
-  return(
+  return (
     <div>
-      <NavBar className="navbar"/>
-      <Body className="body"/>
+      <NavBar className="navbar" />
+      <Body className="body" />
     </div>
+    
   );
-}
+};

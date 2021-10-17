@@ -5,7 +5,7 @@ import './SearchBar.css';
 export const SearchBar = () => {
   return (
     <span className="outer">
-      <form className="inner">
+      <form>
         <BsSearch size="30" className="searchIcon" />
         <TextBox placeholder="Search Reddit Clone" type="search"/>
       </form>

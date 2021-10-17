@@ -1,0 +1,39 @@
+.header{
+  display: flex;
+  align-items: stretch;
+}
+.header span{
+  margin-left: auto;
+}
+
+.header span:hover{
+  cursor: pointer;
+}
+
+/* h3{
+  padding: 0;
+  margin: 0;
+} */
+
+hr{
+  margin-top: 1rem;
+}
+
+form div{
+  display: flex;
+}
+
+form div p{
+  padding-top: 0.25rem;
+  padding-left:0.5rem;
+  font-size: 1.75ex;
+}
+
+.btnDiv{
+  display: flex;
+  justify-content: flex-end;
+}
+
+modal{
+  margin-left: 40%;
+}

@@ -12,7 +12,7 @@ export const FilterCard = () => {
 
   return (
     <Card>
-      <div className="container">
+      <div className="filter">
         <button type="button" className="filterBtn" onClick={() => postFilter("HOT")}>
           <AiTwotoneFire className="filterIcon" /> HOT
         </button>

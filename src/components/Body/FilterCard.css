@@ -6,13 +6,10 @@
 
 .filterIcon{
   border-radius: 9999px;
-  height: auto;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 
-.container{
-  border-color: blue;
-  border-radius: 100px;
+.filter{
   display: flex;
 }

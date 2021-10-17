@@ -4,6 +4,7 @@ import { HomePage } from "./components/Pages/HomePage";
 import { SubmitPage } from "./components/Pages/SubmitPage";
 import { LoginPage } from "./components/Pages/LoginPage";
 import { SignupPage } from "./components/Pages/SignupPage";
+import { ProfilePage } from "./components/Pages/ProfilePage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/submit" exact component={SubmitPage}/>
       <Route path="/login" exact component={LoginPage}/>
       <Route path="/signup" exact component={SignupPage}/>
+      <Route path="/profile" exact component={ProfilePage}/>
     </Router>
   );
 }

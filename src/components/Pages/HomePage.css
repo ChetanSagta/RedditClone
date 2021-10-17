@@ -1,7 +1,7 @@
 .navbar{
   display: flex;
   background-color: white;
-  border-bottom-width: 2px;
+  padding-top: 0.5rem;
 }
 
 .body{
