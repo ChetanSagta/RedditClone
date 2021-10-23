@@ -1,6 +1,6 @@
 .outer{
   margin-left:10rem;
-  width: 60rem;
+  width: 55rem;
 }
 
 .outer form{
@@ -12,7 +12,6 @@
 }
 
 .searchIcon{
-  display: flex;
   height: 1.5rem;
   margin-top: 0.5rem;
   padding-left: 0.5rem;

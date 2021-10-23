@@ -1,6 +1,5 @@
 import { useState, ChangeEvent, useEffect,FormEvent } from "react";
-import { BASE_URL} from "../CONSTANTS";
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { Modal } from "./ui/Modal";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Button } from "./ui/Button";
@@ -14,25 +13,16 @@ export const CreateCommunity = (props: { value: boolean }) => {
   useEffect(() => setHidden(props.value), [props]);
 
   const maxLength = 21;
-  console.log(hidden);
   if (hidden) return <div />;
 
   const createCommuity = (event: FormEvent) =>{
     event.preventDefault();
-      axios({
-        baseURL: BASE_URL + "/v1/createCommunity",
-        method: "post",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/text",
-        },
-        data:{name: subRedditName, type: subRedditType}
-      })
-        .then(function (response) {
+      axios.post("/v1/createCommunity",{communityName: subRedditName, communityType: subRedditType})
+        .then(function (response: AxiosResponse) {
           alert(response);
         })
-        .catch(function (error) {
-          console.error(error);
+        .catch(function (error: AxiosError) {
+          console.error(error.response?.data);
         });
       };
   return (
@@ -58,10 +48,18 @@ export const CreateCommunity = (props: { value: boolean }) => {
         placeholder="r/"
         maxLength={maxLength}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          setSubRedditName(event.target.value);
+          axios.post("/v1/uniqueCommunity",event.target.value)
+          .then(function(response: AxiosResponse<boolean>){
+            console.log(response)
+            if(response) setSubRedditName(event.target.value);
+            else alert("Name should be unique");
+          }
+          ).catch((error: AxiosError)=>{
+            alert(error);
+          })          
         }}
       />
-      {maxLength - subRedditName.length} Characters Remaining
+      {maxLength - subRedditName.length+" "} Characters Remaining
       <br />
       <br />
       <form onSubmit={createCommuity}>

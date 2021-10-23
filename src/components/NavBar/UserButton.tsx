@@ -18,7 +18,7 @@ export const UserButton = () => {
 
   const logOut = () => {
     console.log("In Logout");
-    localStorage.removeItem("JwtToken");
+    localStorage.removeItem("Jwt Token");
     window.location.reload();
   };
 
@@ -35,7 +35,7 @@ export const UserButton = () => {
         className={`container ${clicked === true ? "show" : ""}`}
         onClick={() => setClicked((flag) => !flag)}
       >
-        <span>Chetan</span>
+        <span>{localStorage.getItem("User")?.toUpperCase()}</span>
         <div>
           <Link to="/profile">
             <div>Profile</div>

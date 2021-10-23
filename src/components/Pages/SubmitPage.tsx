@@ -35,15 +35,15 @@ export const SubmitPage = () => {
 
   const submitPost = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const token= localStorage.getItem("Jwt Token");
+    // const token= localStorage.getItem("Jwt Token");
 
     axios({
       baseURL: BASE_URL + "/post/add",
       method: "post",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Authorization":token
-      },
+      // headers: {
+      //   "Access-Control-Allow-Origin": "*",
+      //   "Authorization":token
+      // },
       data: {
         title: title,
         body: body,

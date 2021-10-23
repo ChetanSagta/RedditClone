@@ -5,6 +5,33 @@ import { SubmitPage } from "./components/Pages/SubmitPage";
 import { LoginPage } from "./components/Pages/LoginPage";
 import { SignupPage } from "./components/Pages/SignupPage";
 import { ProfilePage } from "./components/Pages/ProfilePage";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8080";
+const token= localStorage.getItem("Jwt Token");
+
+axios.interceptors.request.use(
+  config => {
+    if(token){
+      config.headers.Authorization = "Bearer " + token;
+    }
+    config.headers.post["access-control-allow-origin"] = "*";
+    return config;
+  }
+)
+
+//Todo: Fix me
+//onRejected should be blocked and onFullfilled should be passed to the right location
+// axios.interceptors.response.use(
+//   (onFulfilled: AxiosResponse) => {
+//     console.log("onFulfilled")
+//   }
+  
+//   (onRejected: AxiosResponse<ErrorResponse>) => {
+//     console.log("onRejected")
+//     console.log(onRejected);
+//   }
+// )
 
 function App() {
   return (

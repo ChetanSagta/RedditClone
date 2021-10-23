@@ -5,7 +5,7 @@ export const Login = () => {
   return (
     <span>
       <Link to="/signup">
-        <Button type="button">SignUp </Button>
+        <Button type="button">SignUp</Button>
       </Link>
       <Link to="/login">
         <Button type="button">Login</Button>

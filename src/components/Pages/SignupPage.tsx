@@ -62,9 +62,6 @@ export const SignupPage = () => {
     axios({
       baseURL: BASE_URL + "/v1/signup",
       method: "post",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
       data: {
         username: userName,
         password: password,
@@ -74,6 +71,7 @@ export const SignupPage = () => {
       .then(function (response: AxiosResponse<string>) {
         alert(response.data);
         history.push("/");
+        window.location.reload();
       })
       .catch(function (error: AxiosError<string>) {
         alert(error.message);

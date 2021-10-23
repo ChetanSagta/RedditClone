@@ -21,9 +21,6 @@ export const LoginPage = () => {
     axios({
       baseURL: BASE_URL + "/v1/login",
       method: "post",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
       data: {
         username: username,
         password: password,
@@ -34,6 +31,7 @@ export const LoginPage = () => {
         localStorage.setItem("User", response.data.username);
         alert("User has been logged in.");
         history.push("/");
+        window.location.reload();
       })
       .catch(function (error: AxiosError<string>) {
         alert(error.message);
