@@ -81,7 +81,7 @@ export const CreateCommunity = (props: { value: boolean }) => {
           <p> Only approved users can post and submit to this community</p>
         </div>
         <div className="btnDiv">
-          <Button type="button">Cancel</Button>
+          <Button type="button" onClick={() => {setHidden(true);}}>Cancel</Button>
           <Button type="submit">Create Community</Button>
         </div>
       </form>

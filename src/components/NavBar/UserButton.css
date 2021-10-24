@@ -14,17 +14,16 @@
   text-align: center;
   width: 10rem;
   background-color: white;
-  text-decoration: underline;
+  text-decoration: underline
 }
 
-.container div{ 
+.container>div{ 
   text-align: center;
   display: none;
   text-decoration: underline;
   color: black;
 }
 
-.show div{
+.show>div{
   display: block;
- 
 }

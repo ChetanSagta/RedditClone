@@ -32,15 +32,19 @@ export const UserButton = () => {
   return (
     <React.Fragment>
       <div
-        className={`container ${clicked === true ? "show" : ""}`}
-        onClick={() => setClicked((flag) => !flag)}
+        className={`container ${clicked ? "show" : ""}`}
+        onClick={() => {
+          setClicked((flag) => !flag);
+          if(!ccHidden) setccHidden(true);
+        }
+        }
       >
         <span>{localStorage.getItem("User")?.toUpperCase()}</span>
         <div>
           <Link to="/profile">
             <div>Profile</div>
           </Link>
-          <div onClick={() => {setccHidden(false);}}>
+          <div onClick={() => setccHidden(false)}>
             Create Community
           </div>
           <div onClick={logOut}>Logout</div>
