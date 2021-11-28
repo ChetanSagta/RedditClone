@@ -28,11 +28,11 @@ export const SubmitBody = (props: Iprops) => {
   let submitBody = null;
   if (props.bodyType.trim() === "Post") {
     submitBody = (
-      <div className="m-2">
+      <div>
         <TextArea
           placeholder="Text"
           rows={10}
-          className="w-full border-2 mt-2 rounded-md pl-2 pt-2 outline-none"
+          className="textArea"
           onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
             setTimeout(() => {
               setBody(event.target.value);
@@ -44,8 +44,8 @@ export const SubmitBody = (props: Iprops) => {
   }
   if (props.bodyType.trim() === "Images & Videos") {
     submitBody = (
-      <div className="flex align-center justify-center">
-        <p className="mt-4">Drag and drop images or </p>
+      <div className="upload">
+        <p >Drag and drop images or </p>
         <Button type="submit" onClick={handleClick}>
           Upload
         </Button>
@@ -62,11 +62,11 @@ export const SubmitBody = (props: Iprops) => {
   }
   if (props.bodyType.trim() === "Link") {
     submitBody = (
-      <div className="m-2">
+      <div>
         <TextArea
           placeholder="Url"
           rows={1}
-          className="w-full border-2 mt-2 rounded-md pl-2 pt-2 outline-none"
+          className="textArea"
           onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
             setTimeout(() => setBody(event.target.value), 1000);
           }}

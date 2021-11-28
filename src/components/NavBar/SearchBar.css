@@ -1,14 +1,12 @@
 .outer{
-  margin-left:10rem;
   width: 55rem;
 }
 
 .outer form{
   display: flex;
-  margin-left: 2.5rem;
   border: 2px;
   margin: 0.25rem;
-  margin-top: 0px;
+  margin-top: -2px;
 }
 
 .searchIcon{

@@ -35,15 +35,10 @@ export const SubmitPage = () => {
 
   const submitPost = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const token= localStorage.getItem("Jwt Token");
 
     axios({
       baseURL: BASE_URL + "/post/add",
       method: "post",
-      // headers: {
-      //   "Access-Control-Allow-Origin": "*",
-      //   "Authorization":token
-      // },
       data: {
         title: title,
         body: body,
@@ -56,6 +51,10 @@ export const SubmitPage = () => {
         alert(error.message);
       });
   };
+
+  const saveDraft = () => {
+    console.info("Save Draft")
+  }
 
   return (
     <div>
@@ -114,6 +113,9 @@ export const SubmitPage = () => {
               <div>
                 <Button type="submit">
                   Post
+                </Button>
+                <Button type="button" onClick={saveDraft}>
+                  Save Draft
                 </Button>
               </div>
             </form>

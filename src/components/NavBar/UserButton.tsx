@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React , { useEffect, useState } from "react";
 import { BiUser } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { CreateCommunity } from "../CreateCommunity";
@@ -11,14 +10,13 @@ export const UserButton = () => {
   const [ccHidden, setccHidden] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem("Jwt Token") === null) {
+    if (!localStorage.getItem("Jwt Token")) {
       setIsLoggedIn(false);
     }
   }, []);
 
   const logOut = () => {
-    console.log("In Logout");
-    localStorage.removeItem("Jwt Token");
+    localStorage.clear();
     window.location.reload();
   };
 
@@ -32,15 +30,13 @@ export const UserButton = () => {
   return (
     <React.Fragment>
       <div
-        className={`container ${clicked ? "show" : ""}`}
         onClick={() => {
           setClicked((flag) => !flag);
           if(!ccHidden) setccHidden(true);
-        }
-        }
+        }}
       >
-        <span>{localStorage.getItem("User")?.toUpperCase()}</span>
-        <div>
+        <span className="username">{localStorage.getItem("User")?.toUpperCase()}</span>
+        <div className={`container ${clicked ? "show" : ""}`}>
           <Link to="/profile">
             <div>Profile</div>
           </Link>

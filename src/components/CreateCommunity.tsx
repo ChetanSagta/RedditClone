@@ -17,9 +17,14 @@ export const CreateCommunity = (props: { value: boolean }) => {
 
   const createCommuity = (event: FormEvent) =>{
     event.preventDefault();
+    if(subRedditType === ""){
+      alert("Please pick a subReddit Type");
+      return ;
+    }
       axios.post("/v1/createCommunity",{communityName: subRedditName, communityType: subRedditType})
         .then(function (response: AxiosResponse) {
-          alert(response);
+          alert(response.data);
+          setHidden(true);
         })
         .catch(function (error: AxiosError) {
           console.error(error.response?.data);
@@ -59,7 +64,7 @@ export const CreateCommunity = (props: { value: boolean }) => {
           })          
         }}
       />
-      {maxLength - subRedditName.length+" "} Characters Remaining
+      &nbsp;{maxLength - subRedditName.length+" "} Characters Remaining
       <br />
       <br />
       <form onSubmit={createCommuity}>

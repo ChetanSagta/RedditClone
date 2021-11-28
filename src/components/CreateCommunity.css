@@ -1,6 +1,6 @@
 .header{
   display: flex;
-  align-items: stretch;
+  align-items: center;
 }
 .header span{
   margin-left: auto;
@@ -21,6 +21,7 @@ hr{
 
 form div{
   display: flex;
+  align-items: center;
 }
 
 form div p{
